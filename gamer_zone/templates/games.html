@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Home</title>
+        <link
+            rel="stylesheet"
+            href="https://bootswatch.com/4/lux/bootstrap.min.css"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <span></span>
+            <span></span>
+            <a class="navbar-brand" href="/2/home/">GAME.IO</a>
+
+            <a
+                class="btn btn-secondary my-2 my-sm-0 ml-auto"
+                type="submit"
+                href="/logout/"
+            >
+                Logout
+            </a>
+        </nav>
+
+        <div class="container">
+            <h1>Games</h1>
+            {% for game in games %}
+            <div class="card" style="width: 18rem">
+                <img src="{{ game.game_img.url }}" class="card-img-top" />
+                <div class="card-body">
+                    <a href="/{user.id}/games/">
+                        <h5 class="card-title">{{ game.game_name }}</h5>
+                    </a>
+                    <p class="card-text">{{ game.game_rules }}</p>
+                    <p class="card-text">{{ game.game_type }}</p>
+                    <h6>{{ game.gamprice }}₹</h6>
+                    <div
+                        class="container"
+                        style="display: flex; margin-bottom: auto"
+                    >
+                        <button
+                            onclick="add_to_cart({{ book.id }})"
+                            class="btn btn-success"
+                        >
+                            Add To Cart
+                        </button>
+                        <input
+                            id="quantity-{{book.id}}"
+                            type="number"
+                            name="quantity"
+                            style="width: 60px"
+                            placeholder="1"
+                            class="form-control"
+                        />
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

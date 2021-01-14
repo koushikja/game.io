@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://bootswatch.com/4/lux/bootstrap.min.css"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <span></span>
+            <span></span>
+            <a class="navbar-brand" href="/">GAME.IO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+         
+     
+           
+                   
+                <a class="btn btn-secondary my-2 my-sm-0 ml-auto" type="submit"
+                href="/login/">Login</a>
+              
+            </div>
+          </nav>
+          
+        <div class="container">
+         <br>
+                <form action="/signup/" class="form-group" method="POST">
+                    {% csrf_token %}
+                    <div class="jumbotron col-md-6 ml-auto mr-auto">
+                        <h4 style="text-align: center">SignUp</h4>
+                        <label for="username">Username</label>
+                        <input type="text" name="username" placeholder="Enter Username" class="form-control"
+                            style="border: solid lightgrey 1px">
+
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="Enter your email" class="form-control"
+                            style="border: solid lightgrey 1px">
+
+
+                        <label for="user_phone">Phone No</label>
+                        <input type="text" name="user_phone" class="form-control" style="border: solid lightgrey 1px">
+                        
+                        <br>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" style="border: solid lightgrey 1px">
+                        <br>
+
+                        <button type="submit" class="btn btn-md btn-primary">SIGN UP </button>
+
+                    </div>
+                </form>
+    </div>
+
+    </body>
+</html>
