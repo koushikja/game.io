@@ -3,10 +3,9 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+
 from gamer_zone.models import *
 # Create your views here.
-
-
 
 def signup(request):
     if request.method=="POST":
@@ -19,7 +18,7 @@ def signup(request):
         
         if not exists:
             user_info = User.objects.create_user(username,email,password)
-            profile=UserDetail.objects.create(user_info=user_info,user_phone=user_phone)
+            profile = UserDetail.objects.create(user_info=user_info,user_phone=user_phone)
             profile.save()
             return redirect('/login/')
     return render(request,"signup.html")
@@ -51,11 +50,17 @@ def signout(request):
     logout(request)
     return redirect(f'/login/')
 
+@login_required
 def games(request,user_id):
-    return render(request,"games.html")
+    user = request.user
+    games = Game.objects.all()
+    return render(request,"games.html",{"games":games , "user":user})
 
+@login_required
 def kitchen(request,user_id):
-    return render(request,"kitchen.html")
+    user = request.user
+    kitchen = Kitchen.objects.all()
+    return render(request,"kitchen.html",{"kitchen":kitchen , "user":user})
 
 def game(request,user_id):
     pass

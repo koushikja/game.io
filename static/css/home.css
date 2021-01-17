@@ -1,0 +1,18 @@
+.game-button {
+    height: 200px;
+    width: 300px;
+    background-position: center center;
+    border-radius: 10%;
+}
+
+.game-button:hover {
+    width: 320px;
+    height: 220px;
+    box-shadow: 2px 2px 21px 1px rgba(33, 33, 33, 0.2);
+    cursor: pointer;
+}
+
+.card-img {
+    display: flex;
+    height: 250px;
+}
