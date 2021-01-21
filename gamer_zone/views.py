@@ -83,7 +83,7 @@ def outdoorGames(request,user_id):
 @login_required
 def home(request,user_id):
     user = request.user
-    gameBooked = GameBooked.objects.filter(pk = user.id)
+    gameBooked = GameBooked.objects.filter(user_info=user.id)
     return render(request,"home.html",{"user":user , "booked":gameBooked})
 
 @login_required

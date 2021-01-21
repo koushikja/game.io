@@ -73,7 +73,13 @@
             <div>
                 <h4>Game Playing...</h4>
                 <hr />
-                <p>No games playing currently......</p>
+                {% for game in booked %}
+                <div class="d-flex justify-content-around">
+                    <h4>{{game.user_info.username}}</h4> ||
+                    <h5>{{game.game_info.game_name}}</h5>||
+                    <p>{{game.game_time}}Hr</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </body>
