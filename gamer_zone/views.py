@@ -62,15 +62,40 @@ def kitchen(request,user_id):
     kitchen = Kitchen.objects.all()
     return render(request,"kitchen.html",{"kitchen":kitchen , "user":user})
 
-def game(request,user_id):
-    pass
+@login_required
+def game(request,user_id,game_id):
+    user = request.user
+    games = Game.objects.get(pk = game_id)
+    return render(request,"game.html",{"games":games , "user":user})
 
+@login_required
+def indoorGames(request,user_id):
+    user = request.user
+    games = Game.objects.filter(game_type="indoor")
+    return render(request,"indoor.html",{"games":games , "user":user})
 
+@login_required
+def outdoorGames(request,user_id):
+    user = request.user
+    games = Game.objects.filter(game_type="outdoor")
+    return render(request,"outdoor.html",{"games":games , "user":user})
+
+@login_required
 def home(request,user_id):
-    return render(request,"home.html")
+    user = request.user
+    gameBooked = GameBooked.objects.filter(pk = user.id)
+    return render(request,"home.html",{"user":user , "booked":gameBooked})
 
-def playgame(request,user_id):
-    pass
+@login_required
+def playgame(request,user_id,game_id):
+    user = request.user
+    games = Game.objects.get(pk = game_id)
+    item_quant = 1
+    if request.method == "POST":
+        bookgame = GameBooked.objects.create(user_info=user,game_info=games,game_time=item_quant,total_game_price= games.game_price)
+        return redirect(f"/{user.id}/home/")
+    return redirect(f"/{user.id}/home/")
+    
 
 def food(request,user_id):
     pass

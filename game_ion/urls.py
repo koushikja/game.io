@@ -11,6 +11,8 @@ urlpatterns = [
     path('login/', signin),
     path('logout/', signout),
     path('<int:user_id>/games/', games),
+    path('<int:user_id>/games/indoor/', indoorGames),
+    path('<int:user_id>/games/outdoor/', outdoorGames),
     path('<int:user_id>/kitchen/', kitchen),
     path('<int:user_id>/home/', home),
     path('<int:user_id>/games/<int:game_id>/', game),

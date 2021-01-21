@@ -35,8 +35,8 @@
             <h1>Games</h1>
             <br />
             <a
-                class="btn btn-outline-primary my-2 my-sm-0 ml-auto"
-                href="/{{user.id}}/games/indoor/"
+                class="btn btn-primary my-2 my-sm-0 ml-auto"
+                href="/{{user.id}}/games/"
                 >Indoor Games</a
             >
             <a
@@ -58,7 +58,7 @@
                         class="card-img-top"
                     />
                     <div class="card-body">
-                        <a href="/{{user.id}}/games/{{ game.id }}/">
+                        <a href="/{{user.id}}/games/{{game.id}}/">
                             <h3 class="card-title">{{ game.game_name }}</h3>
                         </a>
                         <p class="card-text">{{ game.game_rules }}</p>

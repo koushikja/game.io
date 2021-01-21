@@ -15,4 +15,17 @@
 .card-img {
     display: flex;
     height: 250px;
+    width: 300px;
+}
+
+.card-image {
+    display: flex;
+    height: 100px;
+    width: 150px;
+}
+
+.individual-card {
+    height: 320px;
+    width: 320px;
+    box-shadow: 2px 2px 21px 1px rgba(33, 33, 33, 0.2);
 }
