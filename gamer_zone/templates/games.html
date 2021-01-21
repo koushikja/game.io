@@ -64,25 +64,10 @@
                         <p class="card-text">{{ game.game_rules }}</p>
                         <h5 class="card-text">{{ game.game_type }}</h5>
                         <h4>{{ game.game_price }}₹</h4>
-                        <div class="container" style="margin-bottom: auto">
-                            {% comment %}
-                            <button
-                                onclick="add_to_cart({{ book.id }})"
-                                class="btn btn-success"
-                            >
-                                Add To Cart
-                            </button>
-                            {% endcomment %} {% comment %}
-                            <input
-                                id="quantity-{{book.id}}"
-                                type="number"
-                                name="quantity"
-                                style="width: 60px"
-                                placeholder="1"
-                                class="form-control"
-                            />
-                            {% endcomment %}
-                        </div>
+                        <div
+                            class="container"
+                            style="margin-bottom: auto"
+                        ></div>
                     </div>
                 </div>
 

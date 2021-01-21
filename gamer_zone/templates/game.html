@@ -51,44 +51,13 @@
                                 <h6>{{ games.game_type }}</h6>
                                 <h5>{{ games.game_price }}₹</h5>
 
-                                {% comment %}
-                                <div
-                                    class="container"
-                                    style="
-                                        display: flex;
-                                        margin-bottom: auto;
-                                        justify-content: space-evenly;
-                                    "
-                                >
-                                    <button
-                                        onclick="add_to_cart({{book.id}})"
-                                        class="btn btn-success"
-                                    >
-                                        Add To Cart
-                                    </button>
-                                    <input
-                                        id="quantity-{{book.id}}"
-                                        type="number"
-                                        name="quantity"
-                                        style="width: 60px"
-                                        placeholder="1"
-                                        class="form-control"
-                                    />
-                                </div>
-                                {% endcomment %}
                                 <button
                                     type="submit"
-                                    {%
-                                    comment
-                                    %}
-                                    href="/{{user.id}}/games/{{games.id}}/playgame/"
-                                    {%
-                                    endcomment
-                                    %}
                                     class="btn btn-outline-primary"
                                 >
                                     Play Game
                                 </button>
+                                
                             </div>
                         </div>
                     </form>

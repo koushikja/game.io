@@ -100,11 +100,25 @@ def playgame(request,user_id,game_id):
 @login_required
 def finalBill(request,user_id):
     user = request.user
-    return render(request,"checkout.html")
+    gameBooked = GameBooked.objects.filter(user_info=user.id)
+    foodBooked = FoodBooked.objects.filter(user_info=user.id)
+    q=0
+    r=0
+    for game in gameBooked:
+        p=game.game_info.game_price
+        q = q + p
+    for item in foodBooked:
+        x=item.item_info.item_price
+        r = r + x
+    total = q + r
+    
+    return render(request,"checkout.html",{"user":user , "gamebooked":gameBooked,"foodbooked":foodBooked,"total":total})
     
 
-def food(request,user_id):
-    pass
+def food(request,user_id,food_id):
+    user = request.user
+    items = Kitchen.objects.get(pk = food_id)
+    return render(request,"food.html",{"items":items , "user":user})
 
 def placeOrder(request,user_id):
     pass
