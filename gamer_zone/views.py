@@ -97,14 +97,19 @@ def playgame(request,user_id,game_id):
     return redirect(f"/{user.id}/home/")
     
 
+@login_required
+def finalBill(request,user_id):
+    user = request.user
+    return render(request,"checkout.html")
+    
+
 def food(request,user_id):
     pass
 
 def placeOrder(request,user_id):
     pass
 
-def finalBill(reques,user_id):
-    pass
+
 
 def payBill(request,user_id):
     pass

@@ -38,6 +38,13 @@
             </div>
 
             <a
+                href="/{{user.id}}/finalbill/"
+                class="btn btn-outline-secondary ml-auto mr-2"
+            >
+                Checkout
+            </a>
+
+            <a
                 class="btn btn-secondary my-2 my-sm-0 ml-auto"
                 type="submit"
                 href="/logout/"
@@ -71,13 +78,18 @@
                 </div>
             </div>
             <div>
-                <h4>Game Playing...</h4>
+                <h4>Game Played</h4>
                 <hr />
                 {% for game in booked %}
                 <div class="d-flex justify-content-around">
-                    <h4>{{game.user_info.username}}</h4> ||
-                    <h5>{{game.game_info.game_name}}</h5>||
+                    <h4>{{game.user_info.username}}</h4>
+                    ||
+                    <h5>{{game.game_info.game_name}}</h5>
+                    ||
                     <p>{{game.game_time}}Hr</p>
+                    <button type="button" class="btn btn-outline-danger">
+                        🗑️
+                    </button>
                 </div>
                 {% endfor %}
             </div>

@@ -47,6 +47,7 @@ class GameBooked(models.Model):
     user_info = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     game_info = models.ForeignKey(Game, on_delete=models.CASCADE, null=True, blank=True)
     game_time = models.CharField(max_length=100 , blank=True , null=True)
+    game_time_start = models.TimeField(auto_now_add= True)
     total_game_price = models.IntegerField(blank=True , null=True)
 
     def __str__(self):
